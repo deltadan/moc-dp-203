@@ -159,7 +159,7 @@ New-AzRoleAssignment -SignInName $userName -RoleDefinitionName "Storage Blob Dat
 
 # Create database
 write-host "Creating the $sqlDatabaseName database..."
-Invoke-Sqlcmd -ServerInstance "$synapseWorkspace.sql.azuresynapse.net" -U $sqlUser -P $sqlPassword -d $sqlDatabaseName -I -i setup.sql
+Invoke-SqlCmd -ServerInstance "$synapseWorkspace.sql.azuresynapse.net" -Username $sqlUser -Password $sqlPassword -Database $sqlDatabaseName -InputFile "setup.sql"
 
 # Upload files
 write-host "Uploading files..."
